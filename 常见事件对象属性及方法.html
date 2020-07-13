@@ -21,23 +21,34 @@
     <div>
         123
     </div>
+    <ul>
+        <li>a</li>
+        <li>b</li>
+        <li>c</li>
+    </ul>
     <script>
-        //事件对象
+        //事件对象属性及方法
+        // 1.e.target 返回触发事件对象
         var div = document.querySelector('div');
+        div.addEventListener('click', function(e) {
+            console.log(e.target);
+            console.log(this);
+
+        })
+        var ul = document.querySelector('ul');
+        ul.addEventListener('click', function(e) {
+            console.log(e.target); //e.target指向触发事件对象
+            console.log(this); //给ul绑定了事件，this指向ul
+            console.log(e.currentTarget); //与this类似 IE678不兼容 实际开发不常用
+
+        })
+
+        //兼容性 IE678
         div.onclick = function(e) {
-            console.log(e);
-            // console.log(window.event); //IE678
-            // e = e || window.evevt; //IE678兼容性处理
+            e = e || window.event;
+            var target = e.target || e.srcElement;
+            console.log(target);
         }
-
-        // div.addEventListener('click', function(e) {
-        //         console.log(e);
-        //     })//另一种方式
-
-        //1.event 就是一个事件对象 写到侦听函数的小括号中 视作形参
-        //2.事件对象只有有了事件才会存在，它是系统自动创建，不需要传递参数
-        //3.事件对象是事件一系列相关数据的集合 与事件相关
-        //4.事件对象可以自己命名，如event、evt、e
     </script>
 </body>
 
