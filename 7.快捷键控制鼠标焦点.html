@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<!-- 1.检测是否按下s键 如果是 则焦点定位到搜索框中
+2.使用keyCode判断是否按下s键
+3.使用focus()使搜索框获得焦点 -->
+<style>
+    img {
+        position: absolute;
+    }
+</style>
+
+<body>
+    <input type="text">
+    <script>
+        var search = document.querySelector('input');
+        document.addEventListener('keyup', function(e) {
+            // console.log(e.keyCode);S键ASCII码83
+            if (e.keyCode === 83) {
+                search.focus()
+            }
+
+        })
+    </script>
+</body>
+
+</html>
