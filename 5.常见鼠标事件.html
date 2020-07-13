@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body {
+        font-size: 50px;
+        text-align: center;
+    }
+</style>
+
+<body>
+    禁止复制此段文字
+    <script>
+        // 1.contextmenu可以禁用右键菜单
+        document.addEventListener('contextmenu', function(e) {
+                e.preventDefault();
+            })
+            // 2.selectstart 可以禁止选中文字
+        document.addEventListener('selectstart', function(e) {
+            e.preventDefault();
+        })
+    </script>
+</body>
+
+</html>
