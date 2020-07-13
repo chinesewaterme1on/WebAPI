@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<!-- 1.鼠标移动使用mousemove
+2.页面中移动给document注册事件
+3.图片移动且不占位置 使用绝对定位
+4.核心原理：每当鼠标移动时获取鼠标新坐标，将此坐标赋值给图片的top、left值即可 -->
+<style>
+    img {
+        position: absolute;
+    }
+</style>
+
+<body>
+    <img src="img/success.png" alt="">
+    <script>
+        var img = document.querySelector('img');
+        document.addEventListener('mousemove', function(e) {
+            var x = e.pageX - 10;
+            var y = e.pageY - 10;
+            img.style.left = x + 'px';
+            img.style.top = y + 'px';
+        })
+    </script>
+</body>
+
+</html>
